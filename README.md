@@ -24,11 +24,5 @@ This project is intentionally minimal and is meant to demonstrate how **CLI appl
 - **API:** GitHub Public REST API
 - **CLI Input:** `os.Args`
 
----
 
-## Installation
-
-### Prerequisites
-- Go 1.18 or later
-- Internet connection
 
