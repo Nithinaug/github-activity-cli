@@ -21,9 +21,7 @@ for _, event := range events {
         fmt.Println("Pull request activity in", event.Repo.Name)
     }
 }
-fmt.Println("--------------------")
 fmt.Println("Summary")
-fmt.Println("--------------------")
 for eventType, count := range counts {
     fmt.Printf("%-20s %d\n", eventType, count)
 }
