@@ -1,8 +1,6 @@
 # GitHub Activity CLI
 
 [![CI](https://github.com/Nithinaug/github-activity-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/Nithinaug/github-activity-cli/actions)
-[![Go Version](https://img.shields.io/badge/go-1.22+-00ADD8?logo=go)](https://golang.org)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 A fast, colorful CLI tool written in **Go** that displays a developer's recent GitHub activity right in your terminal — pushes, PRs, issues, stars, forks, and more.
 
