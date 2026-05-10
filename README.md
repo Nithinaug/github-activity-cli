@@ -121,7 +121,3 @@ github-activity torvalds
 ```
 
 ---
-
-## License
-
-MIT
