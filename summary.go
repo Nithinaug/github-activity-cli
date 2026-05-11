@@ -74,26 +74,17 @@ func formatEvent(e GitHubEvent) string {
 		if n != 1 {
 			commits = "commits"
 		}
-		return fmt.Sprintf("  %s  Pushed %s %s to %s",
-			color(colorGreen, "↑"),
-			color(colorGreen, fmt.Sprintf("%d", n)),
-			commits, repo)
+		return fmt.Sprintf("  %s  Pushed %s %s to %s", color(colorGreen, "↑"), color(colorGreen, fmt.Sprintf("%d", n)), commits, repo)
 
 	case "CreateEvent":
 		ref := e.Payload.Ref
 		if ref == "" {
 			ref = e.Payload.RefType
 		}
-		return fmt.Sprintf("  %s  Created %s %s in %s",
-			color(colorCyan, "✦"),
-			color(colorGray, e.Payload.RefType),
-			color(colorCyan, ref), repo)
+		return fmt.Sprintf("  %s  Created %s %s in %s", color(colorCyan, "✦"), color(colorGray, e.Payload.RefType), color(colorCyan, ref), repo)
 
 	case "DeleteEvent":
-		return fmt.Sprintf("  %s  Deleted %s %s in %s",
-			color(colorRed, "✗"),
-			color(colorGray, e.Payload.RefType),
-			color(colorRed, e.Payload.Ref), repo)
+		return fmt.Sprintf("  %s  Deleted %s %s in %s", color(colorRed, "✗"), color(colorGray, e.Payload.RefType), color(colorRed, e.Payload.Ref), repo)
 
 	case "WatchEvent":
 		return fmt.Sprintf("  %s  Starred %s", color(colorYellow, "★"), repo)
@@ -112,10 +103,7 @@ func formatEvent(e GitHubEvent) string {
 			num = fmt.Sprintf("#%d", e.Payload.Issue.Number)
 			title = color(colorGray, truncate(e.Payload.Issue.Title, 50))
 		}
-		return fmt.Sprintf("  %s  %s issue %s in %s %s",
-			color(colorYellow, "⚑"),
-			capitalize(action),
-			color(colorYellow, num), repo, title)
+		return fmt.Sprintf("  %s  %s issue %s in %s %s", color(colorYellow, "⚑"), capitalize(action), color(colorYellow, num), repo, title)
 
 	case "PullRequestEvent":
 		action := e.Payload.Action
@@ -124,53 +112,38 @@ func formatEvent(e GitHubEvent) string {
 			num = fmt.Sprintf("#%d", e.Payload.PullRequest.Number)
 			title = color(colorGray, truncate(e.Payload.PullRequest.Title, 50))
 		}
-		return fmt.Sprintf("  %s  %s pull request %s in %s %s",
-			color(colorGreen, "⇄"),
-			capitalize(action),
-			color(colorGreen, num), repo, title)
+		return fmt.Sprintf("  %s  %s pull request %s in %s %s", color(colorGreen, "⇄"), capitalize(action), color(colorGreen, num), repo, title)
 
 	case "IssueCommentEvent":
 		num := ""
 		if e.Payload.Issue != nil {
 			num = fmt.Sprintf("#%d", e.Payload.Issue.Number)
 		}
-		return fmt.Sprintf("  %s  Commented on issue %s in %s",
-			color(colorGray, "💬"),
-			color(colorYellow, num), repo)
+		return fmt.Sprintf("  %s  Commented on issue %s in %s", color(colorGray, "💬"), color(colorYellow, num), repo)
 
 	case "PullRequestReviewEvent":
-		return fmt.Sprintf("  %s  Reviewed a pull request in %s",
-			color(colorGreen, "✔"), repo)
+		return fmt.Sprintf("  %s  Reviewed a pull request in %s", color(colorGreen, "✔"), repo)
 
 	case "PullRequestReviewCommentEvent":
-		return fmt.Sprintf("  %s  Commented on a PR review in %s",
-			color(colorGray, "💬"), repo)
+		return fmt.Sprintf("  %s  Commented on a PR review in %s", color(colorGray, "💬"), repo)
 
 	case "ReleaseEvent":
-		return fmt.Sprintf("  %s  Published a release in %s",
-			color(colorCyan, "🚀"), repo)
+		return fmt.Sprintf("  %s  Published a release in %s", color(colorCyan, "🚀"), repo)
 
 	case "PublicEvent":
-		return fmt.Sprintf("  %s  Made %s public",
-			color(colorGreen, "🌐"), repo)
+		return fmt.Sprintf("  %s  Made %s public", color(colorGreen, "🌐"), repo)
 
 	case "MemberEvent":
-		return fmt.Sprintf("  %s  %s a collaborator in %s",
-			color(colorBlue, "👤"),
-			capitalize(e.Payload.Action), repo)
+		return fmt.Sprintf("  %s  %s a collaborator in %s", color(colorBlue, "👤"), capitalize(e.Payload.Action), repo)
 
 	case "GollumEvent":
-		return fmt.Sprintf("  %s  Updated wiki in %s",
-			color(colorGray, "📄"), repo)
+		return fmt.Sprintf("  %s  Updated wiki in %s", color(colorGray, "📄"), repo)
 
 	case "CommitCommentEvent":
-		return fmt.Sprintf("  %s  Commented on a commit in %s",
-			color(colorGray, "💬"), repo)
+		return fmt.Sprintf("  %s  Commented on a commit in %s", color(colorGray, "💬"), repo)
 
 	default:
-		return fmt.Sprintf("  %s  %s in %s",
-			color(colorGray, "·"),
-			color(colorGray, e.Type), repo)
+		return fmt.Sprintf("  %s  %s in %s", color(colorGray, "·"), color(colorGray, e.Type), repo)
 	}
 }
 
