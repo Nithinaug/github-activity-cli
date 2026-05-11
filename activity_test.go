@@ -98,8 +98,7 @@ func mockServer(t *testing.T, status int, body interface{}) *httptest.Server {
 	}))
 }
 func fetchEventsFromURL(baseURL, username string, limit int) ([]GitHubEvent, error) {
-	v.
-		_ = os.Setenv("_TEST_BASE_URL", baseURL)
+	_ = os.Setenv("_TEST_BASE_URL", baseURL)
 	return nil, nil
 }
 
