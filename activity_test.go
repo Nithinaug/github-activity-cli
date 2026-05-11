@@ -67,8 +67,6 @@ func TestFormatUnknownEvent(t *testing.T) {
 	}
 }
 
-// ── helper tests ─────────────────────────────────────────────────────────────
-
 func TestTruncate(t *testing.T) {
 	if got := truncate("hello world", 5); got != "hell…" {
 		t.Errorf("truncate: got %q", got)
@@ -97,6 +95,7 @@ func mockServer(t *testing.T, status int, body interface{}) *httptest.Server {
 		}
 	}))
 }
+
 func fetchEventsFromURL(baseURL, username string, limit int) ([]GitHubEvent, error) {
 	_ = os.Setenv("_TEST_BASE_URL", baseURL)
 	return nil, nil
