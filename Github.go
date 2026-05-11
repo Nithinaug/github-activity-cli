@@ -50,3 +50,4 @@ func FetchEvents(username string, limit int) ([]GitHubEvent, error) {
 
 	return events, nil
 }
+
