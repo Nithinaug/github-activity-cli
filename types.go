@@ -10,20 +10,17 @@ type GitHubEvent struct {
 type Repo struct {
 	Name string `json:"name"`
 }
+
 type Payload struct {
-	// PushEvent
-	Commits []Commit `json:"commits"`
-	Size    int      `json:"size"`
-	Action  string   `json:"action"`
-
-	Issue *Issue `json:"issue"`
-
+	Commits     []Commit     `json:"commits"`
+	Size        int          `json:"size"`
+	Action      string       `json:"action"`
+	Issue       *Issue       `json:"issue"`
 	PullRequest *PullRequest `json:"pull_request"`
 	RefType     string       `json:"ref_type"`
 	Ref         string       `json:"ref"`
-
-	Forkee  *Forkee  `json:"forkee"`
-	Comment *Comment `json:"comment"`
+	Forkee      *Forkee      `json:"forkee"`
+	Comment     *Comment     `json:"comment"`
 }
 
 type Commit struct {
